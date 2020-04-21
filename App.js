@@ -1,5 +1,8 @@
 import React from 'react';
 
+import { Provider } from "react-redux"
+import { PersistGate } from 'redux-persist/integration/react';
+
 import { createSwitchNavigator, createAppContainer, } from 'react-navigation'
 import { createStackNavigator } from 'react-navigation-stack'
 
@@ -10,6 +13,9 @@ import SurveyAdd from './src/screens/SurveyAdd'
 import Profile from './src/screens/Profile'
 
 import TopBar from './src/components/TopBar'
+
+//import { store, persistor } from './src/store/configureStore'
+
 
 //La LoginStack contient uniquement l'écran Login
 const LoginStack = createStackNavigator({
@@ -85,8 +91,12 @@ export default class App extends React.Component {
   render(){
     
     return (
-      
-        <AppContainer/>
+      // <Provider store={store}>
+      //   <PersistGate loading={null} persistor={persistor}>
+             <AppContainer/>
+      //   </PersistGate>
+      // </Provider>
+        
        
     );
   } 
