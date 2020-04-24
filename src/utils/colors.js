@@ -1,8 +1,8 @@
 export default (COLORS = {
 	black: "#191928",
-	Rouge: "#AF1E2D",
+	rouge: "#AF1E2D",
+	gris:"#920496",
 	yellow: "#F4CE00",
 	orange: "#e48723",
-	red: "#E1354B",
 	gray: "#F4F4F4",
 });

@@ -1,5 +1,5 @@
 
-import { ADD_SURVEY, EDIT_SURVEY, DELETE_SURVEY } from "./actionTypes";
+import { ADD_SURVEY, EDIT_SURVEY, DELETE_SURVEY } from "./actionsTypes";
 
 /**
  * Add a new survey

@@ -1,20 +1,26 @@
 import React from 'react';
-
+import { Root } from 'native-base'
 import { Provider } from "react-redux"
 import { PersistGate } from 'redux-persist/integration/react';
-
 import { createSwitchNavigator, createAppContainer, } from 'react-navigation'
 import { createStackNavigator } from 'react-navigation-stack'
 
+//Import Screens
 import Loading from './src/screens/Loading'
 import Login from './src/screens/Login'
 import MySurveyList from './src/screens/MySurveyList'
-import SurveyAdd from './src/screens/SurveyAdd'
 import Profile from './src/screens/Profile'
+import SurveyAdd from './src/screens/SurveyAdd'
+import SurveyDetails from './src/screens/SurveyDetails'
+import Brouillon from './src/screens/Brouillon'
 
+
+//Import Components
+import SurveyCard from './src/components/SurveyCard'
 import TopBar from './src/components/TopBar'
 
-//import { store, persistor } from './src/store/configureStore'
+//Import Store
+import { store, persistor } from './src/store/configureStore'
 
 
 //La LoginStack contient uniquement l'écran Login
@@ -36,8 +42,21 @@ const AppStack = createStackNavigator({
         <TopBar
                 navigation={ navigation }
                 title = "Mes Surveys"
-                leftActionIcon="searchSurvey"
+                leftActionIcon="searchBeers"
                 rightActionIcon="seeProfile"
+        />
+      ),
+    }),
+  },
+  SurveyDetails: {
+    screen: SurveyDetails,
+    navigationOptions: ({ navigation }) => ({
+      header : () => (
+        <TopBar
+                navigation={ navigation }
+                title = "Single Survey"
+                leftActionIcon="goBack"
+                
         />
       ),
     }),
@@ -75,7 +94,8 @@ const AppStack = createStackNavigator({
 		{
 			Loading: Loading,
 			Login: LoginStack,
-			App: AppStack,
+      App: AppStack,
+      SurveyDetails:SurveyDetails
 		},
 		{
 			initialRouteName: "Loading",
@@ -91,11 +111,13 @@ export default class App extends React.Component {
   render(){
     
     return (
-      // <Provider store={store}>
-      //   <PersistGate loading={null} persistor={persistor}>
-             <AppContainer/>
-      //   </PersistGate>
-      // </Provider>
+      //  <Provider store={store}>
+      //    <PersistGate loading={null} persistor={persistor}>
+             <Root>
+                <AppContainer/>
+             </Root>    
+      //    </PersistGate>
+      //  </Provider>
         
        
     );

@@ -86,16 +86,30 @@ class TopBar extends Component {
 		);
 	};
 
+	getTitle = () => {
+		const { navigation } = this.props;
+
+		if (navigation.state.routName === "SurveyDetails") {
+			const survey = navgiation.getParam("survey", null);
+
+			if(sruvey){
+				return survey.name;
+			}
+		}
+
+		return this.props.title
+	}
+
 	render() {
 		const { leftActionIcon, rightActionIcon } = this.props;
 
 		return (
 			
-			<Header style={styles.Header}>
+			<Header noShadow style={styles.Header}>
 				<StatusBar backgroundColor="#AF1E2D" barStyle="default"/>
 				<Left>{this.renderIcon(leftActionIcon)}</Left>
 				<Body>
-					<Text style={styles.TextTitle}>{this.props.title}</Text>
+					<Text style={styles.TextTitle}>{this.getTitle()}</Text>
 				</Body>
 				<Right>{this.renderIcon(rightActionIcon)}</Right>
 			</Header>
@@ -105,7 +119,7 @@ class TopBar extends Component {
 
 const styles = StyleSheet.create({
 	Header: {
-		backgroundColor: COLORS.Rouge,
+		backgroundColor: COLORS.rouge,
 		
 	},
 	TextTitle:{
