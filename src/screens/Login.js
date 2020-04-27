@@ -1,7 +1,8 @@
 import React, { Component } from "react"
 import { View, Image, StyleSheet,  Text, TouchableOpacity } from "react-native";
-import { Button } from 'native-base'
+import { Button, H3,  } from 'native-base'
 
+import LoginForm from '../components/LoginForm'
 import logo from "../assets/Logo-Signarama-app.png";
 
 
@@ -9,13 +10,21 @@ import logo from "../assets/Logo-Signarama-app.png";
 
 
 class Login extends Component {
+
+	handleLoginFormSubmit = values => {
+		console.log(values);
+
+		// For now, fake Login Success and navigate to BeersList.
+		this.props.navigation.navigate("MySurveyList");
+	};
+
 	render() {
 		return (
 			<View style={styles.screenContentWrapper}>
 				<View style={styles.contentBox}>
 					<Image source={logo} style={styles.logo} />
 
-					<Button style= {styles.Button}
+					{/* <Button style= {styles.Button}
 						bordered
 						light
 						onPress={() => {
@@ -23,7 +32,8 @@ class Login extends Component {
 						}}
 					>
 						<Text>Go to app</Text>
-					</Button>
+					</Button> */}
+					<LoginForm onSubmit={ this.handleLoginFormSubmit}/>
 				</View>
 			</View>
 		);
