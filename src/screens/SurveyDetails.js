@@ -93,7 +93,7 @@ class SurveyDetails extends Component {
                     >
                         <View style={styles.header}>
                             <Text style={styles.headerMainText}> 
-                                 TITRE DU SURVEY
+                                 TITRE {survey.name}
                             </Text>
                             <Text style={styles.headerSubText}>
                                 réalisé par Bopby 
@@ -115,7 +115,13 @@ class SurveyDetails extends Component {
 	}
 }
 
-export default SurveyDetails;
+const mapDispatchToProps = dispatch => {
+    return {
+        deleteSurvey: uid = dispatch(deleteSurvey(uid)),
+    };
+};
+
+export default (SurveyDetails);
 
 const styles = StyleSheet.create({
 	contentWrapper: {

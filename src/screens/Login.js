@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import { View, Image, StyleSheet,  Text, TouchableOpacity } from "react-native";
-import { Button } from 'react-native-elements'
+import { Button } from 'native-base'
 
 import logo from "../assets/Logo-Signarama-app.png";
 
@@ -15,7 +15,7 @@ class Login extends Component {
 				<View style={styles.contentBox}>
 					<Image source={logo} style={styles.logo} />
 
-					<TouchableOpacity style= {styles.Button}
+					<Button style= {styles.Button}
 						bordered
 						light
 						onPress={() => {
@@ -23,7 +23,7 @@ class Login extends Component {
 						}}
 					>
 						<Text>Go to app</Text>
-					</TouchableOpacity>
+					</Button>
 				</View>
 			</View>
 		);

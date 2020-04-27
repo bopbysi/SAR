@@ -73,7 +73,7 @@ class TopBar extends Component {
 				iconName = "power";
 				break;
 		}
-
+		
 		return (
 			<Button
 				transparent
@@ -86,6 +86,7 @@ class TopBar extends Component {
 		);
 	};
 
+	
 	getTitle = () => {
 		const { navigation } = this.props;
 
@@ -99,7 +100,7 @@ class TopBar extends Component {
 
 		return this.props.title
 	}
-
+	
 	render() {
 		const { leftActionIcon, rightActionIcon } = this.props;
 

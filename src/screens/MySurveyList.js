@@ -40,6 +40,7 @@ class SurveyList extends Component {
 	};
 
 	render() {
+		console.log('MySurveyList PROPS=', this.props)
 		return (
 			<View>
 				<View>
@@ -86,7 +87,7 @@ const mapStateToProps = state => ({
 });
 
 
-export default SurveyList;
+export default connect(mapStateToProps)(SurveyList);
 
 const styles = StyleSheet.create({
 	addButton: {
