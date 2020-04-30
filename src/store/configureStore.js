@@ -7,8 +7,6 @@ import { AsyncStorage } from 'react-native'
 import AddSurveyReducer from './reducers/AddSurveyReducer'
 
 
-
-
 const persistConfig = {
     key: "brkp",
     storage: AsyncStorage,

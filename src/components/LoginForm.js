@@ -3,7 +3,7 @@ import { reduxForm, Field } from "redux-form";
 import { View, Text, StyleSheet } from "react-native";
 import { Button } from "native-base";
 
-import TextInput from "../fields/TextInput";
+import TextInput from "../fields/TextInput"
 
 
 import COLORS from "../utils/colors";

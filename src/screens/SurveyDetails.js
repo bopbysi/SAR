@@ -12,7 +12,7 @@ class SurveyDetails extends Component {
     constructor(props){
         super(props);
 
-        const survey = this.props.navigation.getParam('survey', null);
+        const survey = this.props.navigation.getParam("survey", null);
 
         this.state = {
                 subMenuActive: false,
@@ -117,11 +117,12 @@ class SurveyDetails extends Component {
 
 const mapDispatchToProps = dispatch => {
     return {
-        deleteSurvey: uid = dispatch(deleteSurvey(uid)),
+        deleteSurvey: uid => dispatch(deleteSurvey(uid)),
     };
 };
 
-export default (SurveyDetails);
+export default connect(null, mapDispatchToProps)
+(SurveyDetails);
 
 const styles = StyleSheet.create({
 	contentWrapper: {

@@ -3,9 +3,10 @@ import { Text, TouchableOpacity, View, FlatList, StyleSheet, SafeAreaView } from
 import { Button, Icon, ListItem, Thumbnail, H3, Left, Body, Right, Container, Content } from "native-base";
 import { connect } from 'react-redux';
 
-import SurveyCard from "../components/SurveyCard"
-import ScreenContent from "../components/ScreenContent"
-import logo from '../assets/Logo-Signarama-app.png'
+import SurveyCard from "../components/SurveyCard";
+import ScreenContent from "../components/ScreenContent";
+import logo from '../assets/Logo-Signarama-app.png';
+
 
 const DATA = [
 	{
@@ -39,42 +40,44 @@ class SurveyList extends Component {
 		this.props.navigation.navigate("SurveyAdd");
 	};
 
+
+
+	
+
 	render() {
-		console.log('MySurveyList PROPS=', this.props)
+		console.log('===================MY SURVEY LIST PROPS===============>', this.props.survey)
 		return (
 			<View>
 				<View>
-					<FlatList
-						data={DATA}
-						renderItem= {({ item }) => (
-							<SurveyCard
-								item={item}
-								onPress={() => {
-									this.props.navigation.navigate(
-										"SurveyDetails",
-										{
-											survey: item
-										}
-									)
-								}}
-							/>	
-						)}
-					/>
+						<FlatList
+							data={DATA}
+							renderItem= {({ item }) => (
+								<SurveyCard
+									item={item}
+									onPress={() => {
+										this.props.navigation.navigate(
+											"SurveyDetails",
+											{
+												survey: item
+											}
+										)
+									}}
+								/>	
+							)}
+						/>	
+					</View>	
 					
-					
-				</View>	
-				
-				<Button
-					style={styles.addButton}
-					rounded
-					danger
-					inconLeft
-					
-					onPress={this.handleAddSurveyButtonPress}
-				>
-					<Icon name="add" />
-					{/* <Text style={styles.textAddButton}>survey</Text> */}
-				</Button>
+					<Button
+						style={styles.addButton}
+						rounded
+						danger
+						inconLeft
+						
+						onPress={this.handleAddSurveyButtonPress}
+					>
+						<Icon name="add" />
+						{/* <Text style={styles.textAddButton}>survey</Text> */}
+					</Button>
 				
 				
 			</View>
@@ -92,7 +95,7 @@ export default connect(mapStateToProps)(SurveyList);
 const styles = StyleSheet.create({
 	addButton: {
 		 position: "absolute",
-		 bottom: -500,
+		 bottom: -100,
 		 right: 30,
 		 
 	},
