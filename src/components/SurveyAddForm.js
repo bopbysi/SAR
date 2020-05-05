@@ -16,7 +16,7 @@ class SurveyAddForm extends Component {
 						label="Client"
 						autoCorrect={false}
 						component={TextInput}
-						//validate={[required]}
+						validate={[required]}
 					/>
 					<Field
 						name="contact"
