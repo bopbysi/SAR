@@ -6,9 +6,9 @@ import UUIDGenerator from "react-native-uuid-generator";
 import uuid from 'uuid/v4'
 
 
-
 import ScreenContent from "../components/ScreenContent";
 import SurveyAddForm from "../components/SurveyAddForm";
+
 
 import { addSurvey } from "../store/actions/SurveyAction";
 
@@ -34,9 +34,10 @@ class SurveyAdd extends Component {
 	// 	});
 	// };
 
-	handleSurveyAddFormSubmit = values => {
+	handleSurveyAddFormSubmit = (values) => {
+		const action = {type: "addSurvey", value: this.props.surveys}
 		
-		this.props.addSurvey({
+		this.props.surveys({
 						id: null,
 						createdAt: Date.now(),
 						editedAt: null,
@@ -44,12 +45,12 @@ class SurveyAdd extends Component {
 						photo: dummyBeerImage,
 						...values,
 					});
-		//this.props.navigation.navigate("MySurveyList")
+		this.props.navigation.navigate("MySurveyList")
 	};
 
 	render() {
-		// console.log('SurveyAdd Prop', this.props.addSurvey )
-		
+		console.log('==== SurveyAdd Prop ====>', this.props )
+		console.log('==== SurveyAdd state ====>', this.state)
 		return (
 			<ScreenContent>
 				<H3>Information Client</H3>
@@ -61,7 +62,7 @@ class SurveyAdd extends Component {
 
 const mapDispatchToProps = (dispatch) => {
 	return{
-		addSurvey: data => dispatch(addSurvey(data)),
+		surveys: data => dispatch(addSurvey(data)),
 	};
 };
 export default connect(null, mapDispatchToProps)

@@ -3,8 +3,12 @@ import { Text, TouchableOpacity, View, FlatList, StyleSheet, SafeAreaView } from
 import { Button, Icon, ListItem, Thumbnail, H3, Left, Body, Right, Container, Content } from "native-base";
 import { connect } from 'react-redux';
 
+
+import dummyData from '../utils/dummyData'
+import { addSurvey } from "../store/actions/SurveyAction"
+
 import SurveyCard from "../components/SurveyCard";
-import ScreenContent from "../components/ScreenContent";
+
 import logo from '../assets/Logo-Signarama-app.png';
 
 
@@ -45,7 +49,8 @@ class SurveyList extends Component {
 	
 
 	render() {
-		console.log('===================MY SURVEY LIST PROPS===============>', this.props.survey)
+		console.log('===================MY SURVEY LIST PROPS===============>', this.props)
+		console.log('===================MY SURVEY LIST STATE===============>', this.state)
 		return (
 			<View>
 				<View>

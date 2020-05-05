@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Root } from 'native-base'
 import { Provider } from "react-redux"
 import { PersistGate } from 'redux-persist/integration/react';
@@ -106,7 +106,7 @@ const AppStack = createStackNavigator({
 
 
 
-export default class App extends React.Component {
+class App extends Component {
 
   render(){
     
@@ -118,9 +118,9 @@ export default class App extends React.Component {
              </Root>    
           </PersistGate>
         </Provider>
-        
-       
     );
   } 
 }
+
+export default App
 

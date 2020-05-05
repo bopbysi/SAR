@@ -10,8 +10,7 @@ import AddSurveyReducer from './reducers/AddSurveyReducer'
 const persistConfig = {
     key: "brkp",
     storage: AsyncStorage,
-    blacklist: ["form"],
-     
+    blacklist: ["form"],    
 };
 
 const rootReducer = combineReducers ({

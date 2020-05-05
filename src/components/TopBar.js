@@ -93,7 +93,7 @@ class TopBar extends Component {
 		if (navigation.state.routName === "SurveyDetails") {
 			const survey = navgiation.getParam("survey", null);
 
-			if(sruvey){
+			if(survey){
 				return survey.name;
 			}
 		}

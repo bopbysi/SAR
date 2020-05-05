@@ -77,6 +77,8 @@ class SurveyDetails extends Component {
 
 	render() {
         const{ survey } = this.state;
+        console.log("==== SURVEYS DETAILS.JS PROPS ====>", this.props)
+        console.log("==== SURVEYS DETAILS.JS STATES ====>", this.state)
         
         // if ( !survey ) {
         //     return null
