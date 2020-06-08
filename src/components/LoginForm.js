@@ -9,7 +9,7 @@ import TextInput from "../fields/TextInput"
 import COLORS from "../utils/colors";
 
 
-//import { required } from "../../utils/validation";
+import { required } from "../../src/utils/formHelpers";
 
 class LoginForm extends Component {
 	render() {
@@ -17,25 +17,25 @@ class LoginForm extends Component {
 			<View>
 				<View style={STYLES.formWrapper}>
 					<Field
-						name="login"
+						name="username"
 						label="Identifiant"
 						textContentType="username"
 						autoCorrect={false}
 						autoCapitalize="none"
 						component={TextInput}
 						icon="person"
-						//validate={[required]}
+						validate={[required]}
 					/>
 					<Field
 						name="password"
 						label="Mot de passe"
 						textContentType="password"
-						secureTextEntry={true}
+						secureTextEntry={false}
 						autoCorrect={false}
 						autoCapitalize="none"
 						component={TextInput}
 						icon="key"
-						//validate={[required]}
+						validate={[required]}
 					/>
 				</View>
 				<Button
@@ -43,6 +43,7 @@ class LoginForm extends Component {
 					full
 					rounded
 					onPress={this.props.handleSubmit}
+					disabled={this.props.disabled}
 				>
 					<Text>Connexion</Text>
 				</Button>

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, ImageBackground, StyleSheet } from "react-native";
+import { View, ImageBackground, StyleSheet, Alert } from "react-native";
 import { Button, Text, Icon, Container, Content, Fab } from "native-base";
 import { connect } from "react-redux";
 
@@ -32,11 +32,28 @@ class SurveyDetails extends Component {
 
 	// When we click on the Delete icon 
 	handleIconDeletePress = () => {
-		// First, delete the survey.
-		this.props.deleteSurvey(this.state.survey.uid);
+        Alert.alert(
+            "Suppression du survey",
+            `Êtes-vous sûr de vouloir supprimer le survey ${this.state.survey.client}?`,
+            [
+                {
+                    text: "Oui, le supprimer",
+                    onPress: () => {
+                        // First, delete the survey.
+		                this.props.deleteSurvey(this.state.survey.uid);
 
-		// Then, redirect back to SurveyList.
-		this.props.navigation.navigate("SurveyList");
+		                // Then, redirect back to SurveyList.
+		                this.props.navigation.navigate("MySurveyList");
+                    },
+                },
+                {
+                    text: "annuler",
+                    onPress: () => {},
+                    style: "cancel",
+                },
+            ],
+            { cancelable: true }
+        );	
 	};
     
     renderSubMenu = () => {
@@ -95,13 +112,13 @@ class SurveyDetails extends Component {
                     >
                         <View style={styles.header}>
                             <Text style={styles.headerMainText}> 
-                                 TITRE {survey.name}
+                                  {survey.client}
                             </Text>
                             <Text style={styles.headerSubText}>
                                 réalisé par Bopby 
                             </Text>
                             <Text style={styles.headerSubText}>
-                                le 17/01/1990
+                                le 17/01/1990 
                             </Text>
                         </View>        
                     </ImageBackground>
@@ -109,7 +126,7 @@ class SurveyDetails extends Component {
                 </View>
                 <ScreenContent containerStyle={styles.screenContent}>
 			    	<Text>Survey Details</Text>
-                    <Text>JSON.stringify(survey, undefined, 2)</Text>
+                    <Text>{JSON.stringify(survey, undefined, 2)}</Text>
 			    </ScreenContent>
             </View>
 			

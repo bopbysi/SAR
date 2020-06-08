@@ -11,7 +11,7 @@ class TextInput extends Component {
 
 		return (
 			<FieldWrapper {...this.props}>
-				<Item error={meta.touched && meta.error}>
+				<Item error={meta.touched && meta.error ? true: false}>
 					{this.props.icon && (
 						<Icon
 							name={this.props.icon}
@@ -28,7 +28,7 @@ class TextInput extends Component {
 						onChangeText={input.onChange}
 						onBlur={input.onBlur}
 						onFocus={input.onFocus}
-						value={input.value.toString()}
+						value={inputProps.hasNormalize ? input.vale: undefined}
 					/>
 				</Item>
 			</FieldWrapper>

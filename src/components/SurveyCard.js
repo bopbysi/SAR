@@ -9,14 +9,14 @@ export default (SurveyCard = ({ item, onPress }) => (
 			<Thumbnail square source={item.photo} />
 		</Left>
 		<Body>
-			<Text>{item.name}</Text>
+			<Text>{item.client}</Text>
 			<Text note numberOfLines={1}>
-				{item.comment}
+				{item.commentaire}
 			</Text>
 		</Body>
 		<Right>
 			<View style={styles.date}>
-				<Text style={styles.dateText}>{item.date}</Text>
+				<Text style={styles.dateText}>{item.createdAt}</Text>
 			</View>
 		</Right>
 	</ListItem>

@@ -4,7 +4,8 @@ import { View, Text, StyleSheet } from "react-native";
 import { Button, } from "native-base";
 
 import TextInput from "../fields/TextInput";
-import COLORS from "../utils/colors";
+import { required, number,} from "../utils/formHelpers"
+
 
 class SurveyAddForm extends Component {
 	render() {
@@ -37,7 +38,7 @@ class SurveyAddForm extends Component {
 						label="CP"
 						autoCorrect={false}
 						component={TextInput}
-						//validate={[required]}
+						validate={[number]}
 					/>
 					<Field
 						name="ville"
@@ -70,7 +71,7 @@ class SurveyAddForm extends Component {
 
 				</View>
 				<Button style={styles.ajouterSurveyButton} full  rounded onPress={this.props.handleSubmit}>
-					<Text>ajouter un survey</Text>
+					<Text >ajouter un survey</Text>
 				</Button>
 			</View>
 		);
